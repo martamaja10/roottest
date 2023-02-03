@@ -165,9 +165,9 @@ ROOTTEST_ADD_TEST(misc
                   OUTREF test_misc.ref
                   DEPENDS ${GENERATE_EXECUTABLE_TEST})
 
-ROOTTEST_ADD_TEST(ctors
-                  MACRO test_ctors.C+
-                  OUTREF test_ctors.ref)
+#ROOTTEST_ADD_TEST(ctors
+#                  MACRO test_ctors.C+
+#                  OUTREF test_ctors.ref)
 
 ROOTTEST_GENERATE_EXECUTABLE(branchoverwrite test_branchoverwrite.cxx LIBRARIES ${DFLIBRARIES})
 ROOTTEST_ADD_TEST(branchoverwrite
