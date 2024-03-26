@@ -24,14 +24,12 @@ int main() {
    TFile f(fileName);
    ROOT::RDataFrame d(treeName, fileName);
 
-   // TTreeReader should cause a runtime error (type mismatch) when the event-loop is run
-   auto hb = d.Histo1D<double>("b");
-
    bool exception_caught = false;
    try {
-      *hb;
-   } catch (const std::runtime_error &) {
+      d.SupportsTreeBulkIO<double>("b");
+   } catch (const std::runtime_error & re) {
       exception_caught = true;
+      std::cerr << re.what();
    }
    R__ASSERT(exception_caught);
 
